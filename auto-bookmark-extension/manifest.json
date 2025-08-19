@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark Clicked Links",
+  "version": "0.1.0",
+  "description": "Automatically bookmarks any link you click.",
+  "permissions": ["bookmarks", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Bookmark Clicked Links",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
